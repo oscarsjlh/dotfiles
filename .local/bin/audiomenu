@@ -1,0 +1,12 @@
+#!/bin/bash
+speakers=$(pactl list short sinks | grep -i steinberg | awk '{print $1}')
+headphones=$(pactl list short sinks | grep -i ifi | awk '{print $1}')
+outputlist="Headphones \n Speaker"
+outputs=$(echo -e "Audio Outputs \n $outputlist" | rofi -dmenu -selected-row 1 -p "Selct audio  output")
+chosen=$(echo "$outputs" | xargs)
+echo "$chosen"
+if [ "$chosen" = "Speaker" ] ; then
+        pactl set-default-sink "$speakers"
+elif [ "$chosen" = "Headphones" ]; then
+        pactl set-default-sink "$headphones"
+fi

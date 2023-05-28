@@ -1,0 +1,102 @@
+configuration {
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  drun-display-format: "{icon}{name}";
+  font: "JetBrainsMono Medium 10";
+  modi: "window,run,drun";
+  show-icons: true;
+  icon-theme: "papirus";
+}
+@theme "/dev/null"
+* {
+    backgroundcolor:        #161616;
+    altbackgroundcolor:     #282828;
+    foregroundcolor:        #dfdfe0;
+    foregroundcolorinverse: @backgroundcolor;
+    separatorcolor:         #282828;
+    scrollbarcolor:         #161616;
+    selectioncolor:         #08bdba;
+    border-color:           @separatorcolor;
+    background-color:       @backgroundcolor;
+    text-color:             @foregroundcolor;
+
+    font: "Input Sans Condensed, Condensed 10";
+}
+
+#listview {
+    spacing: 0px;
+    scrollbar: true;
+    padding: 8px;
+    dynamic: true;
+}
+
+#window {
+    background-color: @backgroundcolor;
+    border-color: @selectioncolor;
+    border-radius: 4px;
+    border: 2;
+    width: 700px;
+}
+
+#mainbox {
+    border: 0;
+    padding: 0;
+    background-color: @backgroundcolor;
+}
+
+#element {
+    padding: 5px;
+    margin: 5px;
+    background-color: transparent;
+    spacing: 4px;
+}
+
+#element-text {
+    background-color: transparent;
+    text-color: @foregroundcolor;
+    padding: 1px;
+}
+
+#element-text.selected {
+    background-color: transparent;
+    text-color: @foregroundcolor;
+}
+
+#element-icon {
+    background-color: transparent;
+    size: 24px;
+    padding: 1px;
+}
+
+#element.selected {
+    background-color: @altbackgroundcolor;
+    border-radius: 4px;
+    border-color: @selectioncolor;
+    border: 1px;
+}
+
+#inputbar {
+    border: 0 0 1 0;
+    margin: 8px;
+    spacing: 0;
+    border-color: @separatorcolor;
+    childer: ["prompt", "entry"];
+}
+
+#prompt {
+    font: "Symbols Nerd Font 15";
+    padding: 8px;
+    background-color: @backgroundcolor;
+    border: 0 0 0 0;
+}
+
+#entry {
+    padding: 8px;
+}
+
+#scrollbar {
+    enabled: false;
+    width: 0px;
+}
+
+
