@@ -1,5 +1,3 @@
-env: 
-  TERM: xterm-256color
 selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
@@ -11,14 +9,14 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 1
+  opacity: 0.8
 
 scrolling:
   history: 10000
   multiplier: 3
 font:
   normal:
-    family: JetBrainsMono
+    family: JetBrainsMono Nerd Font Mono 
     style: Regular
   bold:
     family: monospace

@@ -17,11 +17,26 @@ return {
             -- Snippets
             {'L3MON4D3/LuaSnip'},             -- Required
             {'rafamadriz/friendly-snippets'}, -- Optional
+            {'jose-elias-alvarez/null-ls.nvim',
+						opts = function ()
+							return require "null-ls"
+						end
+					}, -- Optional
         },
 				config = function()
 					local lsp = require('lsp-zero')
 					lsp.preset('recommended')
-
+					require('lspconfig').gopls.setup({
+						settings = {
+							gopls = {
+								completeUnimported = true,
+								usePlaceholders = true,
+								analyses = {
+									unusedparams = true,
+								},
+						},
+					}
+				})
 					require('lspconfig').yamlls.setup({
 						schemaStore = {
 							enable = true,
@@ -44,12 +59,31 @@ return {
 							["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
 						},
 					})
+					lsp.on_attach(function(client, bufnr)
+						lsp.default_keymaps({buffer = bufnr})
+					end)
+
+					lsp.format_on_save({
+						format_opts = {
+							async = false,
+							timeout_ms = 10000,
+						},
+						servers = {
+							['null-ls'] = {'javascript', 'typescript', 'lua', 'go', "terraform", "sh", "css", "html", "yaml"},
+						}
+					})
 					-- (Optional) Configure lua language server for neovim
 					lsp.nvim_workspace()
 					lsp.setup()
 					local cmp = require('cmp')
 					local cmp_action = require('lsp-zero').cmp_action()
+					require('luasnip.loaders.from_vscode').lazy_load()
 					cmp.setup({
+						sources = {
+							{name = 'nvim_lsp'},
+							{name = 'luasnip'},
+							{name = 'nvim_lua'},
+						},
 						mapping = {
 							-- `Enter` key to confirm completion
 							['<CR>'] = cmp.mapping.confirm({select = false}),
@@ -64,4 +98,3 @@ return {
 })
 	end
 }
-
