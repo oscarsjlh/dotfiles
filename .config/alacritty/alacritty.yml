@@ -16,7 +16,7 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono 
+    family: JetBrainsMono
     style: Regular
   bold:
     family: monospace
@@ -29,8 +29,15 @@ font:
     style: Bold Italic
   size: 12
   offset:
-    x: 3 
+    x: 3
     y: 1
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
 draw_bold_text_with_bright_colors: true
 import:
   - /home/oscar/.config/alacritty/catppuccin/catppuccin-mocha.yml

@@ -1,15 +1,22 @@
 eval "$(starship init zsh)"
+alias wgup="wg-quick up wg0"
+alias wgdo="wg-quick down wg0"
 alias ls='lsd'
 alias vi='nvim'
 alias p='python'
 alias gcf='. /home/oscar/scripts/git.sh'
 alias eivm='nvim ~/.config/nvim/init.lua'
+alias dns='sudo systemctl restart systemd-resolved' 
 alias k=kubectl
-export VISUAL=nvim
+alias ccr="gcloud compute ssh cucumber --project=cucumber-378516  --zone=europe-west2-c --tunnel-through-iap"
+alias gf="ssh root@grafana.uk.natoora.com" 
+alias fr="ssh root@radius.natoora.com" 
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$PATH:/home/oscar/.local/bin"
+
 SAVEIFS=$IFS
 IFS="$(printf '\n\t')"
 
@@ -75,12 +82,24 @@ alias config='/usr/bin/git --git-dir=/home/oscar/.cfg/ --work-tree=/home/oscar'
 
 ### Pugins
 
+   source /usr/share/fzf/key-bindings.zsh
+
+
+   source /usr/share/fzf/completion.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
 
-KCONFIG=~/.kubezsh
-source $KCONFIG
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/oscar/google-cloud-sdk/path.zsh.inc' ]; then . '/home/oscar/google-cloud-sdk/path.zsh.inc'; fi
 
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/oscar/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/oscar/google-cloud-sdk/completion.zsh.inc'; fi
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
