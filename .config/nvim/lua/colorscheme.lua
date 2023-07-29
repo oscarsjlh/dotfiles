@@ -1,1 +1,1 @@
-require("kanagawa").load("wave")
+vim.cmd.colorscheme "catppuccin"
