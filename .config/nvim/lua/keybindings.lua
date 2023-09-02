@@ -22,3 +22,4 @@ vim.keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { silent = true }
 vim.keymap.set("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { silent = true })
 vim.keymap.set("n", "<leader>gse", "<cmd> GoIfErr <CR>", { silent = true })
 
+
