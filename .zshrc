@@ -1,3 +1,5 @@
+MOZ_ENABLE_WAYLAND=1
+export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 eval "$(starship init zsh)"
 alias wgup="wg-quick up wg0"
 alias wgdo="wg-quick down wg0"
