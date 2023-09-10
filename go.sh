@@ -1,4 +1,4 @@
-	#!/bin/bash
+#!/bin/bash
 
 go install mvdan.cc/gofumpt@latest
 go install -v github.com/incu6us/goimports-reviser/v3@latest
