@@ -6,5 +6,9 @@ return {
     end,
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
+
     end,
+
 }
+
+

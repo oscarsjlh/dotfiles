@@ -109,3 +109,7 @@ if [ -f '/home/oscar/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/oscar
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+fpath=(~/.zsh/completion $fpath)
+
+
+export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
