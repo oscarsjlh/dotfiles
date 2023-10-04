@@ -1,4 +1,8 @@
 MOZ_ENABLE_WAYLAND=1
+setopt appendhistory
+setopt share_history
+setopt auto_cd
+setopt append_history
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 eval "$(starship init zsh)"
 alias wgup="wg-quick up wg0"
@@ -96,7 +100,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 autoload -Uz compinit
 compinit
 source <(kubectl completion zsh)
-
+source <(dagger completion zsh)
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/oscar/google-cloud-sdk/path.zsh.inc' ]; then . '/home/oscar/google-cloud-sdk/path.zsh.inc'; fi
 
