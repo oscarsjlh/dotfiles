@@ -3,7 +3,6 @@ export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?ss
 eval "$(starship init zsh)"
 alias wgup="wg-quick up wg0"
 alias wgdo="wg-quick down wg0"
-alias ls='lsd'
 alias vi='nvim'
 alias p='python'
 alias gcf='. /home/oscar/scripts/git.sh'
