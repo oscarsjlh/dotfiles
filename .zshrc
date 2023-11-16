@@ -1,4 +1,5 @@
 MOZ_ENABLE_WAYLAND=1
+export TODO_DB_DSN='postgresql://postgres:admin@localhost:5432/todo?sslmode=disable'
 setopt appendhistory
 setopt share_history
 setopt auto_cd
