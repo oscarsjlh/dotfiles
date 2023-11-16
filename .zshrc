@@ -1,9 +1,16 @@
 MOZ_ENABLE_WAYLAND=1
-export TODO_DB_DSN='postgresql://postgres:admin@localhost:5432/todo?sslmode=disable'
+export HISTFILE="~/.zsh_history"             # Save 100000 lines of history
+HISTSIZE=1000
+SAVEHIST=1000
 setopt appendhistory
 setopt share_history
 setopt auto_cd
 setopt append_history
+# setopt inc_append_history
+setopt share_history
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 eval "$(starship init zsh)"
 alias wgup="wg-quick up wg0"
@@ -22,6 +29,7 @@ export EDITOR="$VISUAL"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$PATH:/home/oscar/.local/bin"
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 SAVEIFS=$IFS
 IFS="$(printf '\n\t')"

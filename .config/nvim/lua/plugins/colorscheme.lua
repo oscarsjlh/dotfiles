@@ -6,6 +6,8 @@ return	{"catppuccin/nvim", name = "catppuccin", priority = 1000,
 			 "shaunsingh/nord.nvim",
        "sainnhe/gruvbox-material",
        "sainnhe/everforest",
-			 "navarasu/onedark.nvim"
+			 "navarasu/onedark.nvim",
+       "shaunsingh/solarized.nvim",
+       "rebelot/kanagawa.nvim"
 }
 
