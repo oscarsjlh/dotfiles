@@ -22,5 +22,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { silent = true })
 vim.keymap.set("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { silent = true })
 vim.keymap.set("n", "<leader>gse", "<cmd> GoIfErr <CR>", { silent = true })
-
+-- Map jj to save and exit insert mode
+vim.keymap.set('i', 'jj', '<ESC>:wa<CR>', {noremap = true, silent = true})
+-- Press i to enter insert mode, and ii to exit insert mode.
 
