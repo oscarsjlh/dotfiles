@@ -1,16 +1,13 @@
 MOZ_ENABLE_WAYLAND=1
-export HISTFILE="~/.zsh_history"             # Save 100000 lines of history
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory
-setopt share_history
-setopt auto_cd
-setopt append_history
-# setopt inc_append_history
-setopt share_history
+
+export HISTFILE="$HOME/zsh_history"
+export HISTSIZE=1000
+export SAVEHIST=$HISTSIZE
+setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
+# setopt inc_append_history
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 eval "$(starship init zsh)"
 alias wgup="wg-quick up wg0"
@@ -120,4 +117,4 @@ export PATH=$PATH:$HOME/.pulumi/bin
 fpath=(~/.zsh/completion $fpath)
 
 
-export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
+export TODO_DB_DSN='postgres://postgres:pa55word@127.0.0.1:5432/tasks?sslmode=disable'
