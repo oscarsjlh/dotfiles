@@ -81,6 +81,7 @@ return {
 					cmp.setup({
 						sources = {
 							{name = 'nvim_lsp'},
+              { name = "copilot", group_index = 2 },
 							{name = 'luasnip'},
 							{name = 'nvim_lua'},
 							{name = 'path'},
