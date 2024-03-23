@@ -11,7 +11,7 @@
         "spacing": 8 
     },
     "clock": {
-        "format": "{:  %F %R}",
+        "format": "󰥔  {:%F:%R}",
     },
     "cpu": {
         "format": "{usage}% ",
