@@ -10,17 +10,12 @@ setopt HIST_FIND_NO_DUPS
 # setopt inc_append_history
 export GREENLIGHT_DB_DSN='postgres://greenlight:pa55word@localhost/greenlight?sslmode=disable'
 eval "$(starship init zsh)"
-alias wgup="wg-quick up wg0"
-alias wgdo="wg-quick down wg0"
 alias vi='nvim'
 alias p='python'
 alias gcf='. /home/oscar/scripts/git.sh'
 alias eivm='nvim ~/.config/nvim/init.lua'
 alias dns='sudo systemctl restart systemd-resolved' 
 alias k=kubectl
-alias ccr="gcloud compute ssh cucumber --project=cucumber-378516  --zone=europe-west2-c --tunnel-through-iap"
-alias gf="ssh root@grafana.uk.natoora.com" 
-alias fr="ssh root@radius.natoora.com" 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export GOPATH=$HOME/go
@@ -98,9 +93,6 @@ alias config='/usr/bin/git --git-dir=/home/oscar/.cfg/ --work-tree=/home/oscar'
 
    source /usr/share/fzf/completion.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 autoload -Uz compinit
 compinit
