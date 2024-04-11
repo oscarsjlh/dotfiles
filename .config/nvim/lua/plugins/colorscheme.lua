@@ -8,7 +8,5 @@ return	{"catppuccin/nvim", name = "catppuccin", priority = 1000,
        "sainnhe/everforest",
 			 "navarasu/onedark.nvim",
        "shaunsingh/solarized.nvim",
-       "folke/tokyonight.nvim",
-       "rebelot/kanagawa.nvim"
 }
 
