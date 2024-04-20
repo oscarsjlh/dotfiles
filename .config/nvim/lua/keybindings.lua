@@ -1,5 +1,8 @@
 vim.opt.number = true
+vim.opt.showmode = false
 vim.opt.relativenumber = true
+vim.opt.updatetime = 250
+vim.opt.inccommand = 'split'
 vim.opt.mouse = 'a'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
