@@ -1,4 +1,4 @@
-return	{"catppuccin/nvim", name = "catppuccin", priority = 1000,
+return	{"catppuccin/nvim",
 			 "navarasu/onedark.nvim",
 			 "Mofiqul/dracula.nvim",
 			 "rebelot/kanagawa.nvim",
@@ -8,5 +8,7 @@ return	{"catppuccin/nvim", name = "catppuccin", priority = 1000,
        "sainnhe/everforest",
 			 "navarasu/onedark.nvim",
        "shaunsingh/solarized.nvim",
+       "rose-pine/neovim", name = "rose-pine",
+       "nyoom-engineering/oxocarbon.nvim"
 }
 
