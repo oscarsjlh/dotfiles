@@ -13,3 +13,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 	pattern = { "terraform", "hcl", "terraform-vars" },
 })
+
+vim.filetype.add({
+	pattern = {
+		[".*/templates/.*%.yaml"] = "helm",
+	},
+})
