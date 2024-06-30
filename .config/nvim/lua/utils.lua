@@ -19,3 +19,10 @@ vim.filetype.add({
 		[".*/templates/.*%.yaml"] = "helm",
 	},
 })
+
+function Create_tmux_split()
+	FilePath = vim.api.nvim_buf_get_name(0)
+	local trimmed = vim.fn.fnamemodify(FilePath, ":p:h")
+	Command = "tmux split-window -c '" .. trimmed .. "'"
+	os.execute(Command)
+end
