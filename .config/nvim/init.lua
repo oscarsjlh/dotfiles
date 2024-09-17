@@ -1,4 +1,5 @@
 require("keybindings")
 require("utils")
+require("templates")
 require("plug")
 require("colorscheme")
