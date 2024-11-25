@@ -2,7 +2,6 @@ return {
 	-- Snippets
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
 		lazy = false,
 		-- priority = 100,
 		config = false,
