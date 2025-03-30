@@ -3,10 +3,6 @@ require("telescope").setup({
 		wrap_results = true,
 
 		fzf = {},
-		history = {
-			path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
-			limit = 100,
-		},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({}),
 		},
