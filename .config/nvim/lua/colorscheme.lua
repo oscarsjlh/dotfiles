@@ -1,1 +1,4 @@
-vim.cmd("colorscheme rose-pine")
+require("onedark").setup({
+	style = "darker",
+})
+require("onedark").load()
