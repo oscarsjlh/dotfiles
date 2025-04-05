@@ -2,16 +2,16 @@ require("telescope").setup({
 	extensions = {
 		wrap_results = true,
 
-		fzf = {},
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
+		fzf = {
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case",
 		},
 	},
 })
 
-pcall(require("telescope").load_extension, "fzf")
-pcall(require("telescope").load_extension, "smart_history")
-pcall(require("telescope").load_extension, "ui-select")
+require("telescope").load_extension("fzf")
 
 local builtin = require("telescope.builtin")
 
