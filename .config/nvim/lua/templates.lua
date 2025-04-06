@@ -3,12 +3,8 @@ local function insert_bash_template()
   if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
     -- Define your template as a Lua string
     local bash_template = [[#!/bin/bash
-# Author: Your Name
 # Date: $(date +%Y-%m-%d)
-# Description: A brief description of the script.
-
 set -euo pipefail
-
 # Your script starts here
 
 ]]
