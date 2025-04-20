@@ -20,7 +20,6 @@ vim.keymap.set("n", "<space>ft", builtin.git_files)
 vim.keymap.set("n", "<space>fh", builtin.help_tags)
 vim.keymap.set("n", "<space>fg", builtin.live_grep)
 vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find)
-
 vim.keymap.set("n", "<space>gw", builtin.grep_string)
 
 vim.keymap.set("n", "<space>fa", function()
