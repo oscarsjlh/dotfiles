@@ -23,7 +23,7 @@ return {
 			bash = { "shfmt" },
 			sh = { "shfmt" },
 			lua = { "stylua" },
-			python = { "isort", "black" },
+			python = { "ruff_format", "ruff_format" },
 			go = { "goimports", "gofmt" },
 			javascript = { { "prettierd", "prettier" } },
 			json = { "jq" },
