@@ -1,5 +1,9 @@
 MOZ_ENABLE_WAYLAND=1
 
+
+autoload -Uz compinit
+compinit
+
 export HISTFILE="$HOME/zsh_history"
 export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE
@@ -94,19 +98,10 @@ alias config='/usr/bin/git --git-dir=/home/oscar/.cfg/ --work-tree=/home/oscar'
    source /usr/share/fzf/completion.zsh
 
 
-autoload -Uz compinit
-compinit
-source <(kubectl completion zsh)
-source <(dagger completion zsh)
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/oscar/google-cloud-sdk/path.zsh.inc' ]; then . '/home/oscar/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/oscar/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/oscar/google-cloud-sdk/completion.zsh.inc'; fi
-
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 # add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
-fpath=(~/.zsh/completion $fpath)
-
 
 export TODO_DB_DSN='postgres://postgres:pa55word@127.0.0.1:5432/tasks?sslmode=disable'
+eval "$(atuin init zsh)"
