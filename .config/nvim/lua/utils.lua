@@ -27,6 +27,11 @@ function Create_tmux_split()
 	os.execute(Command)
 end
 
+vim.keymap.set("n", "<leader>r", function()
+	vim.cmd("w")
+	vim.cmd("belowright split | terminal bash %")
+end, { desc = "Run current script" })
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = "css,eruby,html,htmldjango,javascriptreact,javascript,less,pug,sass,scss,typescriptreact",
 	callback = function()
