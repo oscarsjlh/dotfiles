@@ -5,6 +5,7 @@ return {
 	"rebelot/kanagawa.nvim",
 	"EdenEast/nightfox.nvim",
 	"shaunsingh/nord.nvim",
+	"vague-theme/vague.nvim",
 	"sainnhe/gruvbox-material",
 	enabled = true,
 	priority = 1000,
@@ -17,6 +18,7 @@ return {
 		vim.g.gruvbox_material_statusline_style = "material"
 		vim.g.gruvbox_material_cursor = "auto"
 		vim.cmd.colorscheme("gruvbox-material")
+		vim.cmd.colorscheme("vague")
 	end,
 	"sainnhe/everforest",
 	"navarasu/onedark.nvim",
