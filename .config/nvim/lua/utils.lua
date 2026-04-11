@@ -65,4 +65,4 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-vim.lsp.enable("luals")
+-- Note: lua_ls is configured in mason.lua, no need to enable here
