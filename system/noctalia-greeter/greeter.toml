@@ -1,0 +1,40 @@
+# noctalia-greeter — declarative admin config
+# Managed by ~/dotfiles (see ~/dotfiles/setup-noctalia-greeter.sh)
+# Installed to /var/lib/noctalia-greeter/greeter.toml  (owned by the greeter user)
+#
+# This file wins over sync.toml for any key it sets. Sync (Settings ->
+# Security -> Noctalia Greeter) writes palette/wallpaper/monitor layout into
+# /var/lib/noctalia-greeter/sync.toml and never rewrites this file.
+#
+# Full reference: https://docs.noctalia.dev/greeter/configuration/
+
+[session]
+# Must be the desktop entry's Name= (the picker label), not the .desktop filename.
+# "Sway" comes from /usr/share/wayland-sessions/sway.desktop
+default = "Sway"
+
+[user]
+# Open straight on this account's password prompt.
+default = "oscar"
+
+[appearance]
+# NOTE: `scheme` and `theme_mode` are deliberately NOT pinned here. greeter.toml
+# wins over sync.toml, so pinning them would freeze the look and defeat Noctalia
+# sync (which sets scheme = "Synced" plus the palette itself). Set appearance
+# keys here only if you want to override the shell.
+password_style = "default"
+hide_logo = false
+power_buttons_position = "bottom-right"
+scheme_selector_position = "top-right"
+
+[keyboard]
+layout = "us"
+numlock = true
+
+[cursor]
+theme = "Adwaita"
+size = 24
+
+[idle]
+# Seconds before the outputs blank on the login screen; 0 disables.
+timeout = 300

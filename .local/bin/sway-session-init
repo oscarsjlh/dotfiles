@@ -1,0 +1,44 @@
+#!/bin/bash
+# sway-session-init — publish the compositor environment to D-Bus / systemd
+# Called from ~/.config/sway/dms/exec.conf as:
+#     exec_always ~/.local/bin/sway-session-init
+#
+# Why this exists: when sway is started by greetd (the Noctalia greeter) no
+# shell profile runs first, so D-Bus-activated and systemd user services -
+# notably xdg-desktop-portal (-wlr for screen sharing) - would not see
+# WAYLAND_DISPLAY / SWAYSOCK / PATH. This script exports them into the
+# activation environments. It cannot change sway's own environment (sway runs
+# it as a child), so programs sway launches see sway's env; add extras to
+# ~/.config/environment.d/*.conf if you also want them in systemd user units.
+
+set -u
+
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=${XDG_RUNTIME_DIR}/bus}"
+
+# GTK theme previously set here (used by this script's own children).
+export GTK_THEME="${GTK_THEME:-dracula}"
+# Wayland-native Firefox even when launched before the shell profile.
+export MOZ_ENABLE_WAYLAND=1
+# greetd's PATH is just /usr/local/bin:/usr/bin, so add the user's own dirs
+# before publishing PATH to D-Bus / systemd.
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.local/share/npm-global/bin:$PATH"
+
+PUBLISH="DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE \
+SWAYSOCK I3SOCK GDK_BACKEND QT_QPA_PLATFORM CLUTTER_BACKEND \
+GTK_THEME MOZ_ENABLE_WAYLAND PATH DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR \
+XCURSOR_THEME XCURSOR_SIZE"
+
+# 1. D-Bus activation environment (+ systemd user manager via --systemd).
+command -v dbus-update-activation-environment >/dev/null 2>&1 && \
+  dbus-update-activation-environment --systemd $PUBLISH
+
+# 2. Belt and braces for systemd user units.
+command -v systemctl >/dev/null 2>&1 && \
+  systemctl --user import-environment $PUBLISH 2>/dev/null
+
+# 3. Start the portal early so the first screencast request does not stall.
+command -v systemctl >/dev/null 2>&1 && \
+  systemctl --user start xdg-desktop-portal.service 2>/dev/null
+
+exit 0
