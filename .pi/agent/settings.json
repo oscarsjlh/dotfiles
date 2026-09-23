@@ -1,0 +1,9 @@
+{
+  "theme": "dark",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-subagents"
+  ],
+  "lastChangelogVersion": "0.87.1"
+}

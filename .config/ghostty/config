@@ -43,4 +43,3 @@
 # resize-overlay-duration = 4s 200ms
 #
 command=tmux attach || tmux
-theme = tokyonight

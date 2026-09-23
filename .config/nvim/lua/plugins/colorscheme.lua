@@ -86,10 +86,4 @@ return {
 		name = "rose-pine",
 		lazy = true,
 	},
-
-	-- Oxocarbon theme
-	{
-		"nyoom-engineering/oxocarbon.nvim",
-		lazy = true,
-	},
 }

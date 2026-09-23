@@ -1,3 +1,13 @@
 .config/nvim/lazy-lock.json
 ./Pictures/*
 !./Pictures/wallpaper/
+.pi/agent/auth.json
+.pi/agent/crashes.json
+.pi/agent/models-store.json
+.pi/agent/opencode-usage.jsonl
+.pi/agent/opencode-keys.json
+.pi/agent/opencode_go_usage_settings.json
+.pi/agent/npm/
+.pi/agent/sessions/
+.pi/agent/git/
+.pi/agent/bin/

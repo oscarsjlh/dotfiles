@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "searxng": {
+      "command": "bun",
+      "args": [
+        "run",
+        "src/index.ts"
+      ],
+      "cwd": "~/.local/share/searxng-mcp",
+      "env": {
+        "SEARXNG_BASE_URL": "https://search.oscarcorner.com"
+      }
+    }
+  }
+}
