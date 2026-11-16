@@ -5,5 +5,6 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-subagents"
   ],
-  "lastChangelogVersion": "0.87.1"
+  "lastChangelogVersion": "1.0.2",
+  "deviceId": "f0548f8a-b864-486c-9741-a1ce4897944e"
 }

@@ -1,0 +1,45 @@
+onboarding = false
+# Migrated from .tmux.conf for herdr 0.9.5.
+[terminal]
+new_cwd = "follow"
+
+[keys]
+prefix = "ctrl+a"
+detach = "prefix+d"
+new_tab = "prefix+c"
+split_vertical = "prefix+k"
+split_horizontal = "prefix+j"
+# j/k are split keys. Use arrows for focus instead.
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = "prefix+down"
+focus_pane_up = "prefix+up"
+focus_pane_right = ["prefix+l", "prefix+right"]
+cycle_pane_next = ["prefix+tab", "ctrl+space"]
+last_pane = "ctrl+backslash"
+move_tab_previous = "prefix+<"
+move_tab_next = "prefix+>"
+resize_pane_down = "prefix+ctrl+j"
+resize_pane_up = "prefix+ctrl+k"
+resize_pane_left = "prefix+ctrl+h"
+resize_pane_right = "prefix+ctrl+l"
+
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "\"$HOME/.local/bin/sessions\""
+description = "Choose a project workspace"
+width = "80%"
+height = "80%"
+
+[ui]
+mouse_capture = true
+copy_on_select = true
+prompt_new_tab_name = false
+
+[advanced]
+# Herdr limits history in bytes, not lines.
+scrollback_limit_bytes = 10000000
+
+[theme]
+name = "catppuccin"
+auto_switch = false

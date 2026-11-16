@@ -170,6 +170,7 @@ step "Installing AUR packages..."
 
 yay -S --needed --noconfirm \
   carapace-bin \
+  herdr-bin \
   noctalia-greeter \
   2>/dev/null || warn "Some AUR packages may have failed, continuing..."
 
@@ -313,7 +314,7 @@ echo "=========================================="
 echo ""
 echo "Next steps:"
 echo "  1. If shell was changed, LOG OUT and back in"
-echo "  2. Open tmux, press PREFIX + I to install tmux plugins"
+echo "  2. Open herdr; press Ctrl+a, then ? for keys, or Ctrl+a, then f for projects"
 echo "  3. Open nvim and run :checkhealth"
 echo "  4. Update SEARXNG_BASE_URL in ~/.pi/agent/mcp.json if your SearXNG instance is not on localhost:8080"
 echo ""
