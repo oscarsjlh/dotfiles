@@ -23,6 +23,7 @@ alias k=kubectl
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export GOPATH=$HOME/go
+export PATH="$HOME/.local/share/npm-global/bin:$PATH"
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$PATH:/home/oscar/.local/bin"
 export CLOUDSDK_PYTHON_SITEPACKAGES=1

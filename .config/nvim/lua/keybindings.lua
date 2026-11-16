@@ -28,4 +28,8 @@ vim.keymap.set("n", "<leader>gse", "<cmd> GoIfErr <CR>", { silent = true })
 -- Map jj to save and exit insert mode
 vim.keymap.set("i", "jj", "<ESC>:wa<CR>", { noremap = true, silent = true })
 -- Press i to enter insert mode, and ii to exit insert mode.
-vim.keymap.set("n", "<leader>gt", "<cmd> lua Create_tmux_split() <CR>", { silent = true })
+vim.keymap.set("n", "<leader>gt", "<cmd>lua Create_terminal_split()<CR>", { silent = true })
+-- Keep editor split navigation separate from herdr pane navigation.
+for key, direction in pairs({ h = "h", j = "j", k = "k", l = "l" }) do
+	vim.keymap.set("n", "<C-" .. key .. ">", "<C-w>" .. direction, { silent = true })
+end

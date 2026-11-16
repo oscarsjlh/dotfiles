@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "grafana": {
+      "command": "/usr/bin/uvx",
+      "args": ["mcp-grafana", "--usage-stats=disabled"],
+      "env": {
+        "GRAFANA_URL": "https://grafana.oscarcorner.com",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "!cut -d= -f2- /home/oscar/.config/mcp-grafana/credentials.env"
+      },
+      "description": "Read and change Grafana dashboards and alerts; query metrics and logs at grafana.oscarcorner.com.",
+      "exposure": "codemode",
+      "enabled": false
+    },
+    "sweethome3d": {
+      "type": "http",
+      "url": "http://localhost:9877/mcp"
+    },
+    "searxng": {
+      "command": "bun",
+      "args": [
+        "run",
+        "src/index.ts"
+      ],
+      "cwd": "~/.local/share/searxng-mcp",
+      "env": {
+        "SEARXNG_BASE_URL": "https://search.oscarcorner.com"
+      }
+    },
+    "blender": {
+      "command": "uvx",
+      "args": [
+        "mcp-for-blender"
+      ],
+      "description": "Control Blender: inspect scenes, create/modify/delete objects, manage materials, import assets, and execute Python code in Blender"
+    }
+  }
+}

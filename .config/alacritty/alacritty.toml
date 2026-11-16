@@ -69,7 +69,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
-args = ["-l", "-c", "tmux attach || tmux"]
+args = ["-l", "-c", "exec herdr"]
 program = "/bin/zsh"
 
 [window]

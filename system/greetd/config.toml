@@ -1,0 +1,14 @@
+# greetd — managed by ~/dotfiles (see ~/dotfiles/setup-noctalia-greeter.sh)
+# Installed to /etc/greetd/config.toml
+# Docs: https://docs.noctalia.dev/greeter/installation/
+
+[terminal]
+# Own tty1 (upstream default). greetd.service Conflicts=getty@tty1.service,
+# so the text getty is displaced automatically when greetd starts.
+vt = 1
+
+[default_session]
+# IMPORTANT: launch the *session wrapper*, not the noctalia-greeter binary.
+# The wrapper starts the greeter's bundled wlroots compositor.
+command = "/usr/bin/noctalia-greeter-session"
+user = "greeter"

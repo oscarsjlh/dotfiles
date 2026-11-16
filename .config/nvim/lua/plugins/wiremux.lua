@@ -1,5 +1,9 @@
 return {
 	"MSmaili/wiremux.nvim",
+	-- The installed Wiremux backend supports tmux only.
+	cond = function()
+		return vim.env.HERDR_ENV ~= "1" and vim.env.TMUX ~= nil
+	end,
 	dependencies = {
 		-- Optional: nicer picker UI
 		"ibhagwan/fzf-lua",

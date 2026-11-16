@@ -1,0 +1,6 @@
+{
+  "searxngBaseUrl": "https://search.oscarcorner.com",
+  "ssrf": {
+    "allowRanges": ["192.168.1.231/32"]
+  }
+}

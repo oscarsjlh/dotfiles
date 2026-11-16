@@ -20,11 +20,22 @@ vim.filetype.add({
 	},
 })
 
-function Create_tmux_split()
-	FilePath = vim.api.nvim_buf_get_name(0)
-	local trimmed = vim.fn.fnamemodify(FilePath, ":p:h")
-	Command = "tmux split-window -c '" .. trimmed .. "'"
-	os.execute(Command)
+function Create_terminal_split()
+	local file_path = vim.api.nvim_buf_get_name(0)
+	local directory = file_path ~= "" and vim.fn.fnamemodify(file_path, ":p:h") or vim.fn.getcwd()
+	local command
+	if vim.env.HERDR_ENV == "1" then
+		command = { "herdr", "pane", "split", "--current", "--direction", "down", "--cwd", directory, "--focus" }
+	elseif vim.env.TMUX then
+		command = { "tmux", "split-window", "-c", directory }
+	else
+		vim.notify("Open Neovim inside herdr or tmux first", vim.log.levels.WARN)
+		return
+	end
+	local result = vim.system(command, { text = true }):wait()
+	if result.code ~= 0 then
+		vim.notify(result.stderr ~= "" and result.stderr or result.stdout, vim.log.levels.ERROR)
+	end
 end
 
 vim.keymap.set("n", "<leader>r", function()

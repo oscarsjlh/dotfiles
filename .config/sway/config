@@ -1,0 +1,9 @@
+# Sway config — migrated from Hyprland
+# Uses Noctalia Shell instead of waybar
+# Catppuccin Mocha theme
+# Coexists with ~/.config/hypr/hyprland.conf
+
+include dms/layout.conf
+include dms/exec.conf
+include dms/binds.conf
+include dms/windowrules.conf

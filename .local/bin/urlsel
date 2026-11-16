@@ -1,0 +1,34 @@
+#!/bin/bash
+# urlsel — pick a URL out of the cliphist history and copy it back.
+#
+# Bound to $mod+D in sway (dms/binds.conf) and Hyprland (hyprland.conf).
+# Requires: cliphist (watched by wl-paste), wofi.
+#
+#   urlsel            interactive picker
+#   urlsel --print    just list the URLs found (debugging)
+
+set -u
+
+# Strip characters that terminate a URL, de-duplicate, keep the whole history.
+list_urls() {
+  cliphist list 2>/dev/null \
+    | cliphist decode 2>/dev/null \
+    | grep -Eo 'https?://[^<>"'"'"'[:space:]]+' \
+    | sed 's/[.,;:!?)\]]*$//' \
+    | sort -u
+}
+
+if [[ "${1:-}" == "--print" ]]; then
+  list_urls
+  exit 0
+fi
+
+# Match the style of the $mod+C clipboard picker in the sway/hyprland configs.
+# (wofi's --width/--height are pixel sizes, not character widths — leave them out.)
+selected="$(list_urls | wofi --dmenu -p "URL")"
+
+[[ -n "$selected" ]] || exit 1
+
+# wl-copy's default "auto" type fills both the clipboard and the primary
+# selection, so this covers Ctrl-V and middle-click alike.
+printf '%s' "$selected" | wl-copy

@@ -1,4 +1,9 @@
-return{
+return {
 	"aserowy/tmux.nvim",
-  config = function() return require("tmux").setup() end
+	cond = function()
+		return vim.env.HERDR_ENV ~= "1" and vim.env.TMUX ~= nil
+	end,
+	config = function()
+		require("tmux").setup()
+	end,
 }
